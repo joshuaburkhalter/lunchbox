@@ -1,0 +1,128 @@
+<! DOCTYPE html>
+<html>
+<head>
+  <title>Redpoint Lunch[Box]</title>
+
+  <link rel="stylesheet" href="animate.css">
+
+  <style type="text/css">
+    body {
+      background-color: #7f8C8D;
+      margin: auto;
+      animation: fade-in 10s;
+    }
+
+    @keyframes fade-in {
+      0% {
+        background-color: #E8EAF6;
+      }
+      100% {
+        background-color: #7f8C8D;
+      }
+    }
+
+    .container {
+      position:absolute;
+      left: 50%;
+      top:50%;
+      transform:translate(-50%, -50%);
+      text-align: center;
+      border-radius: 8px;
+      padding: 2em;
+      background-color: #3498DB;
+    }
+
+    h1 {
+      color: #E8EAF6;
+      font-size: 60px;
+      font-family: Garamond;
+      padding-bottom: 15px;
+    }
+
+    button {
+      font-size: 30px;
+      border:none;
+      padding:15px 32px;
+      color: #E8EAF6;
+      border-radius: 5px;
+      color:black;
+      transition-duration:.4s;
+    }
+
+    button:hover {
+      background-color: #E57373;
+      color:#E8EAF6;
+    }
+
+    button:active {
+      background-color: #E8EAF6;
+    }
+
+    p {
+      margin: 15px;
+      padding-bottom: 50px;
+      font-family: Verdana;
+      font-size: 25px;
+
+    }
+
+
+  </style>
+
+  <script>
+    restaurants = new Array("Big Daddy's", "Billy's", "Bojangles", "Buffalo Wild Wings", "Chic-Fil-A", "Chicken Salad Chick", "Chipotle",
+      "Ruby Tuesdays", "Dickey's", "Five Guys", "Glory Bound", "Hooligans", "Hoo's Q", "Jason's Deli", "Jim and Nicks",
+      "Jimmy John's", "Little Ceasar's", "McCalister's Deli", "Mellow Mushroom", "Milo's", "Moe's BBQ", "Moe's Southwest", "Mr. Chen's", "Mugshots",
+      "Nothing but Noodles", "Olive Garden", "Outback", "Panda Express", "Panera Bread", "Pita Pit", "Post Office Pies", "Schlotsy's Deli", "Sweet Home Food Bar",
+      "Taco Bell", "Taco Casa", "Taziki's", "The Levy", "Which Wich", "Bob's Victory Grill", "Zaxby's");
+
+
+  </script>
+  <script src="jquery-1.12.0.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Lunch[Box]</h1>
+    </div>
+
+    <div>
+      <p id="restaurant">Click below...</p>
+    </div>
+
+    <div class="button">
+      <button type="submit" id="pick">Click Me</button>
+    </div>
+
+    <div>
+      <p></p>
+    </div>
+  </div>
+
+  <script>document.getElementById("pick").addEventListener("click", function(){
+      document.getElementById("restaurant").innerHTML = restaurants[Math.floor(Math.random() *( restaurants.length - 1))];
+    });
+  </script>
+  <script>
+    $(document).ready(function(){
+     $("button").click(function(){
+        $("p").addClass('animated bounceIn').one('animationend',
+          function() {
+            $(this).removeClass('animated bounceIn');
+          });
+      });
+    });
+  </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
